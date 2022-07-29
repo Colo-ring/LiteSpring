@@ -1,6 +1,7 @@
 package com.yjc;
 
 import com.yjc.bean.LiteAnnotationConfigApplicationContext;
+import com.yjc.config.AppConfig;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -10,7 +11,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j(topic = "c.test1")
 public class test1 {
     public static void main(String[] args) {
-        LiteAnnotationConfigApplicationContext applicationContext = new LiteAnnotationConfigApplicationContext("com.yjc.entity");
+        LiteAnnotationConfigApplicationContext applicationContext = new LiteAnnotationConfigApplicationContext(AppConfig.class);
         System.out.println(applicationContext.getBeanDefinitionCount());
         String[] beanDefinitionNames = applicationContext.getBeanDefinitionNames();
         for (String beanDefinitionName : beanDefinitionNames) {

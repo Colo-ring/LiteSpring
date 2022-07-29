@@ -12,5 +12,5 @@ import lombok.Data;
 @AllArgsConstructor
 public class BeanDefinition {
     private String beanName;
-    private Class beanClass;
+    private Class<?> beanClass;
 }

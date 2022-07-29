@@ -21,6 +21,6 @@ public class Account {
     @Value("22")
     private Integer age;
     @Autowired
-    @Qualifier("myOrder")
+    //@Qualifier("myOrder")
     private Order order;
 }

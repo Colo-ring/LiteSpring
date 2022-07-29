@@ -1,9 +1,6 @@
 package com.yjc.bean;
 
-import com.yjc.annotation.Autowired;
-import com.yjc.annotation.Component;
-import com.yjc.annotation.Qualifier;
-import com.yjc.annotation.Value;
+import com.yjc.annotation.*;
 import com.yjc.util.ScanTools;
 
 import java.lang.annotation.Annotation;
@@ -17,10 +14,16 @@ import java.util.*;
  * @create 2022/7/28 17:26
  */
 public class LiteAnnotationConfigApplicationContext {
-    private Map<String, Object> ioc = new HashMap<>();
-    private List<String> beanNames = new ArrayList<>();
+    private final Class<?> configClass;
+    private final Map<String, Object> ioc = new HashMap<>();
+    private final List<String> beanNames = new ArrayList<>();
 
-    public LiteAnnotationConfigApplicationContext(String pack) {
+    public LiteAnnotationConfigApplicationContext(Class<?> configClass) {
+        // 初始化配置类
+        this.configClass = configClass;
+        ComponentScan scanAnnotation = (ComponentScan) configClass.getAnnotation(ComponentScan.class);
+        assert scanAnnotation != null : "配置类未正确配置注解！";
+        String pack = scanAnnotation.value();
         // 遍历包，找到目标类（原材料）
         Set<BeanDefinition> beanDefinitions = findBeanDefinitions(pack);
         // 根据原材料创建bean
@@ -51,25 +54,32 @@ public class LiteAnnotationConfigApplicationContext {
             Field[] declaredFields = clazz.getDeclaredFields();
             for (Field declaredField : declaredFields) {
                 Autowired annotation = declaredField.getAnnotation(Autowired.class);
-                if(annotation != null){
-                    Qualifier qualifier = declaredField.getAnnotation(Qualifier.class);
-                    if(qualifier != null){
-                        //byName
-                        try {
-                            String beanName = qualifier.value();
-                            Object bean = getBean(beanName);
-                            String fieldName = declaredField.getName();
-                            String methodName = "set" + fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
-                            Method method = clazz.getMethod(methodName, declaredField.getType());
-                            Object object = getBean(beanDefinition.getBeanName());
-                            method.invoke(object, bean);
-                        } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-                            e.printStackTrace();
-                        }
-                    } else {
-                        //byType
-
-                    }
+                if (annotation == null) {
+                    continue;
+                }
+                String fieldName = declaredField.getName();
+                String beanName;
+                Object bean;
+                Qualifier qualifier = declaredField.getAnnotation(Qualifier.class);
+                if (qualifier != null) {
+                    // byName
+                    beanName = qualifier.value();
+                } else {
+                    // byType
+                    Class<?> type = declaredField.getType();
+                    Component wiredAnnotation = type.getAnnotation(Component.class);
+                    assert wiredAnnotation != null : "注入对象未放入IOC容器！";
+                    String value = wiredAnnotation.value();
+                    beanName = "".equals(value) ? fieldName : value;
+                }
+                bean = getBean(beanName);
+                String methodName = "set" + fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
+                try {
+                    Method method = clazz.getMethod(methodName, declaredField.getType());
+                    Object object = getBean(beanDefinition.getBeanName());
+                    method.invoke(object, bean);
+                } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+                    e.printStackTrace();
                 }
             }
         }
