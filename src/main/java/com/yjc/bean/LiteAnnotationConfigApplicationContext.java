@@ -1,6 +1,7 @@
 package com.yjc.bean;
 
 import com.yjc.annotation.*;
+import com.yjc.bean.factory.BeanNameAware;
 import com.yjc.util.ScanTools;
 
 import java.lang.annotation.Annotation;
@@ -73,12 +74,11 @@ public class LiteAnnotationConfigApplicationContext {
                     beanName = "".equals(value) ? fieldName : value;
                 }
                 bean = getBean(beanName);
-                String methodName = "set" + fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);
                 try {
-                    Method method = clazz.getMethod(methodName, declaredField.getType());
                     Object object = getBean(beanDefinition.getBeanName());
-                    method.invoke(object, bean);
-                } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
+                    declaredField.setAccessible(true);
+                    declaredField.set(object, bean);
+                } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
             }
@@ -95,16 +95,13 @@ public class LiteAnnotationConfigApplicationContext {
             String beanName = beanDefinition.getBeanName();
             try {
                 // 创建对象
-                Object object = clazz.getConstructor().newInstance();
+                Object object = clazz.getDeclaredConstructor().newInstance();
                 // 完成属性的赋值
                 Field[] declaredFields = clazz.getDeclaredFields();
                 for (Field declaredField : declaredFields) {
                     Value valueAnnotation = declaredField.getAnnotation(Value.class);
                     if (valueAnnotation != null) {
                         String value = valueAnnotation.value();
-                        String fieldName = declaredField.getName();
-                        String methodName = "set" + fieldName.substring(0,1).toUpperCase() + fieldName.substring(1);
-                        Method method = clazz.getMethod(methodName, declaredField.getType());
                         // 类型转换
                         Object val = null;
                         switch (declaredField.getType().getName()) {
@@ -118,9 +115,15 @@ public class LiteAnnotationConfigApplicationContext {
                                 val = Float.parseFloat(value);
                                 break;
                         }
-                        method.invoke(object, val);
+                        declaredField.setAccessible(true);
+                        declaredField.set(object, val);
                     }
                 }
+                // BeanNameAware 回调
+                if (object instanceof BeanNameAware) {
+                    ((BeanNameAware) object).setBeanName(beanName);
+                }
+
                 //存入缓存
                 ioc.put(beanName, object);
             } catch (InstantiationException | IllegalAccessException | InvocationTargetException |

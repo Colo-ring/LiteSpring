@@ -1,5 +1,6 @@
 package com.yjc.entity;
 
+import com.yjc.annotation.Autowired;
 import com.yjc.annotation.Component;
 import com.yjc.annotation.Value;
 import lombok.Data;
