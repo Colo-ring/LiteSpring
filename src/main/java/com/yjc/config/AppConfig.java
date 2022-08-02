@@ -6,6 +6,6 @@ import com.yjc.annotation.ComponentScan;
  * @author IntelliYJC
  * @create 2022/7/29 16:47
  */
-@ComponentScan("com.yjc")
+@ComponentScan("com.yjc.service")
 public class AppConfig {
 }

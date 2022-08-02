@@ -1,9 +1,6 @@
 package com.yjc.entity;
 
-import com.yjc.annotation.Autowired;
-import com.yjc.annotation.Component;
-import com.yjc.annotation.Qualifier;
-import com.yjc.annotation.Value;
+import com.yjc.annotation.*;
 import lombok.Data;
 
 /**
@@ -12,7 +9,7 @@ import lombok.Data;
  */
 
 @Data
-@Component
+@Repository
 public class Account {
     @Value("1")
     private Integer id;

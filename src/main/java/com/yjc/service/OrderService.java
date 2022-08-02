@@ -1,6 +1,7 @@
 package com.yjc.service;
 
 import com.yjc.annotation.Component;
+import com.yjc.annotation.Service;
 import lombok.Data;
 
 /**
@@ -8,6 +9,6 @@ import lombok.Data;
  * @create 2022/7/30 15:33
  */
 @Data
-@Component
+@Service
 public class OrderService {
 }

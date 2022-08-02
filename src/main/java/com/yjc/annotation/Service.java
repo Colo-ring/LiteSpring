@@ -7,10 +7,14 @@ import java.lang.annotation.Target;
 
 /**
  * @author IntelliYJC
- * @create 2022/7/28 17:05
+ * @create 2022/7/31 14:58
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Component {
+@Component
+public @interface Service {
+    @AliasFor(
+            annotation = Component.class
+    )
     String value() default "";
 }

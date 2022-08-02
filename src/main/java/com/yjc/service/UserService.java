@@ -21,4 +21,9 @@ public class UserService implements BeanNameAware {
     public void setBeanName(String name) {
         this.beanName = name;
     }
+
+    // 测试
+    public void queryUserInfo(){
+        System.out.println("查询用户信息");
+    }
 }
