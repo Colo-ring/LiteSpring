@@ -15,15 +15,28 @@ public class UserService implements BeanNameAware {
     @Autowired
     private OrderService orderService;
 
-    private String beanName;
+    private String userName;
+
+    public UserService() {
+    }
+
+    public UserService(String userName) {
+        this.userName = userName;
+    }
 
     @Override
     public void setBeanName(String name) {
-        this.beanName = name;
+        this.userName = name;
     }
 
-    // 测试
-    public void queryUserInfo(){
-        System.out.println("查询用户信息");
+    public void queryUserInfo() {
+        System.out.println("查询用户信息：" + userName);
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("");
+        sb.append("").append(userName);
+        return sb.toString();
     }
 }

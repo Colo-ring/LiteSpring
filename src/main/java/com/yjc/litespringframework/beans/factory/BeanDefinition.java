@@ -1,5 +1,6 @@
 package com.yjc.litespringframework.beans.factory;
 
+import com.yjc.litespringframework.beans.PropertyValues;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -9,23 +10,21 @@ import lombok.Data;
  */
 
 public class BeanDefinition {
-    private String beanName;
     private Class<?> beanClass;
+    private PropertyValues propertyValues;
 
-    public BeanDefinition() {
-    }
+    /*public BeanDefinition() {
+        this.propertyValues = new PropertyValues();
+    }*/
 
-    public BeanDefinition(String beanName, Class<?> beanClass) {
-        this.beanName = beanName;
+    public BeanDefinition(Class<?> beanClass) {
         this.beanClass = beanClass;
+        this.propertyValues = new PropertyValues();
     }
 
-    public String getBeanName() {
-        return beanName;
-    }
-
-    public void setBeanName(String beanName) {
-        this.beanName = beanName;
+    public BeanDefinition(Class<?> beanClass, PropertyValues pvs) {
+        this.beanClass = beanClass;
+        this.propertyValues = pvs != null ? pvs : new PropertyValues();
     }
 
     public Class<?> getBeanClass() {
@@ -34,5 +33,13 @@ public class BeanDefinition {
 
     public void setBeanClass(Class<?> beanClass) {
         this.beanClass = beanClass;
+    }
+
+    public PropertyValues getPropertyValues() {
+        return propertyValues;
+    }
+
+    public void setPropertyValues(PropertyValues propertyValues) {
+        this.propertyValues = propertyValues;
     }
 }
