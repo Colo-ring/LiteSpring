@@ -4,7 +4,7 @@ import bean.UserDao;
 import bean.UserService;
 import com.yjc.litespringframework.beans.PropertyValue;
 import com.yjc.litespringframework.beans.PropertyValues;
-import com.yjc.litespringframework.beans.config.BeanReference;
+import com.yjc.litespringframework.beans.factory.config.BeanReference;
 import com.yjc.litespringframework.beans.factory.BeanDefinition;
 import com.yjc.litespringframework.beans.support.DefaultListableBeanFactory;
 import lombok.extern.slf4j.Slf4j;

@@ -1,6 +1,6 @@
 package com.yjc.litespringframework.beans.support;
 
-import com.yjc.litespringframework.beans.config.SingletonBeanRegistry;
+import com.yjc.litespringframework.beans.factory.config.SingletonBeanRegistry;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package com.yjc.litespringframework.beans.config;
+package com.yjc.litespringframework.beans.factory.config;
 
 /**
  * @author IntelliYJC

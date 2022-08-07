@@ -3,12 +3,20 @@ package com.yjc.litespringframework.beans.support;
 import com.yjc.litespringframework.beans.BeansException;
 import com.yjc.litespringframework.beans.factory.BeanDefinition;
 import com.yjc.litespringframework.beans.factory.BeanFactory;
+import com.yjc.litespringframework.beans.factory.ConfigurableListableBeanFactory;
+import com.yjc.litespringframework.beans.factory.config.BeanPostProcessor;
+import com.yjc.litespringframework.beans.factory.config.ConfigurableBeanFactory;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author IntelliYJC
  * @create 2022/8/2 20:03
  */
-public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements BeanFactory {
+public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements ConfigurableBeanFactory {
+
+    private final List<BeanPostProcessor> beanPostProcessors = new ArrayList<>();
 
     @Override
     public Object getBean(String name) throws BeansException {
@@ -18,6 +26,11 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
     @Override
     public Object getBean(String name, Object... args) throws BeansException {
         return doGetBean(name, args);
+    }
+
+    @Override
+    public <T> T getBean(String name, Class<T> requiredType) throws BeansException {
+        return (T) getBean(name);
     }
 
     protected <T> T doGetBean(final String name, final Object[] args) {
@@ -36,4 +49,19 @@ public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry i
     // 创建 bean
     protected abstract Object createBean(String beanName, BeanDefinition beanDefinition, Object[] args) throws BeansException;
     // ============
+
+
+    @Override
+    public void addBeanPostProcessor(BeanPostProcessor beanPostProcessor) {
+        this.beanPostProcessors.remove(beanPostProcessor);
+        this.beanPostProcessors.add(beanPostProcessor);
+    }
+
+    /**
+     * Return the list of BeanPostProcessors that will get applied
+     * to beans created with this factory.
+     */
+    public List<BeanPostProcessor> getBeanPostProcessors() {
+        return this.beanPostProcessors;
+    }
 }
