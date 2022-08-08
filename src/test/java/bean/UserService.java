@@ -1,10 +1,13 @@
 package bean;
 
+import com.yjc.litespringframework.beans.factory.DisposableBean;
+import com.yjc.litespringframework.beans.factory.InitializingBean;
+
 /**
  * @author IntelliYJC
  * @create 2022/8/4 14:05
  */
-public class UserService {
+public class UserService implements InitializingBean, DisposableBean {
     private String uId;
     private String company;
     private String location;
@@ -43,5 +46,15 @@ public class UserService {
 
     public void setUserDao(UserDao userDao) {
         this.userDao = userDao;
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println("执行：UserService.destroy");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("执行：UserService.afterPropertiesSet");
     }
 }

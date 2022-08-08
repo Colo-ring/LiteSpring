@@ -14,6 +14,7 @@ import java.util.Map;
  * @create 2022/8/6 16:39
  */
 public abstract class AbstractApplicationContext extends DefaultResourceLoader implements ConfigurableApplicationContext {
+
     @Override
     public void refresh() throws BeansException {
         // 1. 创建 BeanFactory, 并加载 BeanDefinition
@@ -74,6 +75,16 @@ public abstract class AbstractApplicationContext extends DefaultResourceLoader i
     @Override
     public <T> T getBean(String name, Class<T> requiredType) throws BeansException {
         return getBeanFactory().getBean(name, requiredType);
+    }
+
+    @Override
+    public void registerShutdownHook() {
+        Runtime.getRuntime().addShutdownHook(new Thread(this::close));
+    }
+
+    @Override
+    public void close() {
+        getBeanFactory().destroySingletons();
     }
 
 }
