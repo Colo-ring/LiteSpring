@@ -3,10 +3,6 @@ package com.yjc.litespringframework.context.support;
 import com.yjc.litespringframework.beans.factory.xml.XmlBeanDefinitionReader;
 import com.yjc.litespringframework.beans.support.DefaultListableBeanFactory;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/7 13:57
- */
 public abstract class AbstractXmlApplicationContext extends AbstractRefreshableApplicationContext {
     @Override
     protected void loadBeanDefinitions(DefaultListableBeanFactory beanFactory) {

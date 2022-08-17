@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-/**
- * @author IntelliYJC
- * @create 2022/4/4 13:14
- */
 public class PropertyValues {
     private final List<PropertyValue> propertyValueList;
 

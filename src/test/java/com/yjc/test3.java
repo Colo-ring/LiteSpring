@@ -13,11 +13,6 @@ import org.junit.Test;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/6 15:33
- */
-
 @Slf4j(topic = "c.test3")
 public class test3 {
     private DefaultResourceLoader resourceLoader;

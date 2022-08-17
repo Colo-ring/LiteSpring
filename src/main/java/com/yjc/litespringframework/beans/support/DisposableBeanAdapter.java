@@ -7,11 +7,6 @@ import com.yjc.litespringframework.beans.factory.DisposableBean;
 
 import java.lang.reflect.Method;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/8 12:37
- * 销毁方法适配器，提供两种方式：实现接口 DisposableBean、配置信息 destroy-method
- */
 public class DisposableBeanAdapter implements DisposableBean {
     private final Object bean;
     private final String beanName;

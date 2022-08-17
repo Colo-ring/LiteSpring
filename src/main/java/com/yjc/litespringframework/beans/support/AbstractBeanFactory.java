@@ -10,10 +10,6 @@ import com.yjc.litespringframework.beans.factory.config.ConfigurableBeanFactory;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/2 20:03
- */
 public abstract class AbstractBeanFactory extends DefaultSingletonBeanRegistry implements ConfigurableBeanFactory {
 
     private final List<BeanPostProcessor> beanPostProcessors = new ArrayList<>();

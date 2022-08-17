@@ -5,10 +5,6 @@ import com.yjc.annotation.Component;
 import com.yjc.bean.factory.BeanNameAware;
 import lombok.Data;
 
-/**
- * @author IntelliYJC
- * @create 2022/7/30 15:32
- */
 @Data
 @Component
 public class UserService implements BeanNameAware {

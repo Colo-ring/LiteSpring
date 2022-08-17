@@ -4,10 +4,6 @@ import com.yjc.litespringframework.beans.BeansException;
 
 import java.util.Map;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/6 16:35
- */
 public interface ListableBeanFactory extends BeanFactory{
 
     /**

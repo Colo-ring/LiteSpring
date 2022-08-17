@@ -9,10 +9,6 @@ import com.yjc.litespringframework.core.io.DefaultResourceLoader;
 
 import java.util.Map;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/6 16:39
- */
 public abstract class AbstractApplicationContext extends DefaultResourceLoader implements ConfigurableApplicationContext {
 
     @Override

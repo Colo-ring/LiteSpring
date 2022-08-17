@@ -9,10 +9,6 @@ import com.yjc.processor.MyBeanPostProcessor;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/7 14:32
- */
 @Slf4j(topic = "c.test4")
 public class test4 {
 

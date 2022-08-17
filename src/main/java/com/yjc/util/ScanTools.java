@@ -12,11 +12,6 @@ import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 
-
-/**
- * @author IntelliYJC
- * @create 2022/7/28 17:26
- */
 public class ScanTools {
     public static Set<Class<?>> getClasses(String pack) {
 

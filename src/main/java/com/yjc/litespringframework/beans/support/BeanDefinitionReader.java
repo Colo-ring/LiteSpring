@@ -4,10 +4,6 @@ import com.yjc.litespringframework.beans.BeansException;
 import com.yjc.litespringframework.core.io.Resource;
 import com.yjc.litespringframework.core.io.ResourceLoader;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/4 17:21
- */
 public interface BeanDefinitionReader {
     BeanDefinitionRegistry getRegistry();
 

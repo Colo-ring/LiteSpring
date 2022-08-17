@@ -1,9 +1,5 @@
 package com.yjc.litespringframework.beans.factory.config;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/4 13:41
- */
 public class BeanReference {
     private final String beanName;
 

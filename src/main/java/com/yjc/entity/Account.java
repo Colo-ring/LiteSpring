@@ -3,11 +3,6 @@ package com.yjc.entity;
 import com.yjc.annotation.*;
 import lombok.Data;
 
-/**
- * @author IntelliYJC
- * @create 2022/7/28 17:03
- */
-
 @Data
 @Repository
 public class Account {

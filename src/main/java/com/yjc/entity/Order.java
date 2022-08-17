@@ -5,11 +5,6 @@ import com.yjc.annotation.Component;
 import com.yjc.annotation.Value;
 import lombok.Data;
 
-/**
- * @author IntelliYJC
- * @create 2022/7/28 17:04
- */
-
 @Data
 @Component("myOrder")
 public class Order {

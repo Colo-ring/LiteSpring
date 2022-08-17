@@ -2,10 +2,6 @@ package com.yjc.litespringframework.context.support;
 
 import com.yjc.litespringframework.beans.BeansException;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/7 14:03
- */
 public class ClassPathXmlApplicationContext extends AbstractXmlApplicationContext{
     private String[] configLocations;
 

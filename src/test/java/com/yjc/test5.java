@@ -5,10 +5,6 @@ import com.yjc.litespringframework.context.support.ClassPathXmlApplicationContex
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/8 13:36
- */
 @Slf4j(topic = "c.test5")
 public class test5 {
 

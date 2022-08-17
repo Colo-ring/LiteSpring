@@ -1,8 +1,6 @@
 package com.yjc.litespringframework.beans.factory;
 
 /**
- * @author IntelliYJC
- * @create 2022/8/8 12:01
  * 初始化接口
  */
 public interface InitializingBean {

@@ -7,10 +7,6 @@ import net.sf.cglib.proxy.NoOp;
 
 import java.lang.reflect.Constructor;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/3 13:52
- */
 public class CglibSubclassingInstantiationStrategy implements InstantiationStrategy{
     @Override
     public Object instantiate(BeanDefinition beanDefinition, String name, Constructor<?> ctor, Object... args) throws BeansException {

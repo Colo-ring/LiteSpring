@@ -8,8 +8,6 @@ import java.lang.reflect.InvocationTargetException;
 
 /**
  * JDK 实例化对象
- * @author IntelliYJC
- * @create 2022/8/3 13:45
  */
 public class SimpleInstantiationStrategy implements InstantiationStrategy{
     @Override

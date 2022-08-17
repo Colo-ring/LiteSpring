@@ -10,11 +10,6 @@ import com.yjc.litespringframework.beans.support.DefaultListableBeanFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/3 14:22
- */
-
 @Slf4j(topic = "c.test2")
 public class test2 {
     @Test

@@ -4,10 +4,6 @@ import bean.UserService;
 import com.yjc.litespringframework.beans.BeansException;
 import com.yjc.litespringframework.beans.factory.config.BeanPostProcessor;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/7 14:37
- */
 public class MyBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {

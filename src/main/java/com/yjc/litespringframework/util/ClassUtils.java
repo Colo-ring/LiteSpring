@@ -1,9 +1,5 @@
 package com.yjc.litespringframework.util;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/4 17:03
- */
 public class ClassUtils {
     public static ClassLoader getDefaultClassLoader() {
         ClassLoader cl = null;

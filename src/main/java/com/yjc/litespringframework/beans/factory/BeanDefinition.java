@@ -1,13 +1,6 @@
 package com.yjc.litespringframework.beans.factory;
 
 import com.yjc.litespringframework.beans.PropertyValues;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
-/**
- * @author IntelliYJC
- * @create 2022/7/28 17:31
- */
 
 public class BeanDefinition {
     private Class<?> beanClass;

@@ -4,10 +4,6 @@ import com.yjc.litespringframework.beans.BeansException;
 import com.yjc.litespringframework.beans.factory.ConfigurableListableBeanFactory;
 import com.yjc.litespringframework.beans.support.DefaultListableBeanFactory;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/7 13:42
- */
 public abstract class AbstractRefreshableApplicationContext extends AbstractApplicationContext {
     private DefaultListableBeanFactory beanFactory;
 

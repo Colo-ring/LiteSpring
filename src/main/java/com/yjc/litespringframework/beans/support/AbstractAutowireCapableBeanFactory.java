@@ -15,10 +15,6 @@ import com.yjc.litespringframework.beans.factory.BeanDefinition;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/2 20:17
- */
 public abstract class AbstractAutowireCapableBeanFactory extends AbstractBeanFactory implements AutowireCapableBeanFactory {
     private InstantiationStrategy instantiationStrategy = new CglibSubclassingInstantiationStrategy();
 

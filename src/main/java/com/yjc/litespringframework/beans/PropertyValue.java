@@ -1,8 +1,6 @@
 package com.yjc.litespringframework.beans;
 
 /**
- * @author IntelliYJC
- * @create 2022/8/4 13:04
  * 属性值类
  */
 public class PropertyValue {

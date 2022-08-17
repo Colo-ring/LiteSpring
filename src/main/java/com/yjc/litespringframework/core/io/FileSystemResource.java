@@ -6,10 +6,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/4 17:08
- */
 public class FileSystemResource implements Resource{
     private final File file;
 

@@ -10,10 +10,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
 
-/**
- * @author IntelliYJC
- * @create 2022/7/28 17:26
- */
 public class LiteAnnotationConfigApplicationContext {
     private final Class<?> configClass;
     private final Map<String, Object> ioc = new HashMap<>();

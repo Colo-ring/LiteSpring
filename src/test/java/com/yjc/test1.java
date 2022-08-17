@@ -8,10 +8,6 @@ import com.yjc.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
 
-/**
- * @author IntelliYJC
- * @create 2022/7/28 19:11
- */
 @Slf4j(topic = "c.test1")
 public class test1 {
     public static void main(String[] args) {

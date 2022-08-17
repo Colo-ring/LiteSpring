@@ -6,10 +6,6 @@ import com.yjc.litespringframework.beans.factory.config.AutowireCapableBeanFacto
 import com.yjc.litespringframework.beans.factory.config.BeanPostProcessor;
 import com.yjc.litespringframework.beans.factory.config.ConfigurableBeanFactory;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/6 16:44
- */
 public interface ConfigurableListableBeanFactory extends ListableBeanFactory, AutowireCapableBeanFactory, ConfigurableBeanFactory {
     BeanDefinition getBeanDefinition(String beanName) throws BeansException;
 

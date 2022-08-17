@@ -3,10 +3,6 @@ package bean;
 import com.yjc.litespringframework.beans.factory.DisposableBean;
 import com.yjc.litespringframework.beans.factory.InitializingBean;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/4 14:05
- */
 public class UserService implements InitializingBean, DisposableBean {
     private String uId;
     private String company;

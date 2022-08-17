@@ -3,10 +3,6 @@ package bean;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/4 14:04
- */
 public class UserDao {
     private static Map<String, String> hashMap = new HashMap<>();
 

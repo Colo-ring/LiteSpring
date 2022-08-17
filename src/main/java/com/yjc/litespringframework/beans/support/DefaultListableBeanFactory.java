@@ -8,10 +8,6 @@ import com.yjc.litespringframework.beans.factory.config.BeanPostProcessor;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/2 20:20
- */
 public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFactory implements BeanDefinitionRegistry, ConfigurableListableBeanFactory {
 
     private final Map<String, BeanDefinition> beanDefinitionMap = new HashMap<>();

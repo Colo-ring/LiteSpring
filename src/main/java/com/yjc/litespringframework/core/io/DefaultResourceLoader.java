@@ -5,12 +5,7 @@ import cn.hutool.core.lang.Assert;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/**
- * @author IntelliYJC
- * @create 2022/8/4 17:17
- */
 public class DefaultResourceLoader implements ResourceLoader{
-
 
     @Override  // 把三种不同类型的资源处理方式进行包装
     public Resource getResource(String location) {
